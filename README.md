@@ -3,8 +3,10 @@ Drupal development with Docker
 
 It contains a LAMP stack and an SSH server, along with an up to date version of Drush. It is based on [Debian Jessie](https://wiki.debian.org/DebianJessie).
 
-Summary
--------
+[![](https://badge.imagelayers.io/dropdog/docker:latest.svg)](https://imagelayers.io/?images=dropdog/docker:latest 'Get your own badge on imagelayers.io')
+
+Software
+---------
 
 This image contains:
 
@@ -15,7 +17,7 @@ This image contains:
 * Composer
 * PHPMyAdmin
 
-When launching, the container will contain a fully-installed, ready to use Drupal site.
+When launching, the container will contain a fully-installed, ready to use infrastructure for Drupal 8.x development.
 
 ### Passwords
 
