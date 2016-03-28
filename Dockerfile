@@ -69,16 +69,16 @@ RUN mkdir -p /root/.ssh/ && touch /root/.ssh/authorized_keys
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 # Setup Supervisor.
-RUN echo $"[program:apache2]\n\
+RUN echo '[program:apache2]\n\
          command=/bin/bash -c "source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND"\n\
-         autorestart=true\n"\
+         autorestart=true\n'\
          >> /etc/supervisor/supervisord.conf
-RUN echo $"[program:mysql]\n\
+RUN echo '[program:mysql]\n\
          command=/usr/bin/pidproxy /var/run/mysqld/mysqld.pid /usr/sbin/mysqld\n\
-         autorestart=true\n"\ 
+         autorestart=true\n'\ 
          >> /etc/supervisor/supervisord.conf
-RUN echo $"[program:sshd]\n\
-         command=/usr/sbin/sshd -D\n"\
+RUN echo '[program:sshd]\n\
+         command=/usr/sbin/sshd -D\n'\
          >> /etc/supervisor/supervisord.conf
 
 # Setup XDebug.
