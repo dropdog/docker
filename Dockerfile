@@ -29,7 +29,7 @@ RUN apt-get -qqy update && \
     apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
 
 # Install Composer.
-RUN curl -sS https://getcomposer.org/installer | php && \
+RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
     mv composer.phar /usr/local/bin/composer
 
 # Install Drush 8 (master) as phar.
