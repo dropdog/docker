@@ -36,13 +36,13 @@ When launching, the container will contain a fully-installed, ready to use infra
 
 Get the image:
 
-  docker pull dropdog/docker
+```docker pull dropdog/docker```
 
 #### Tags
 
-You can specify the specific Drupal version you want, like `8.0.0`. For example:
+You can specify the specific Drupal version you want, like `latest`. For example:
 
-  docker pull dropdog/docker:8.0.0
+```docker pull dropdog/docker:latest```
 
 ### Running tests
 
@@ -50,15 +50,15 @@ If you want to run tests, you may need to take some additional steps. Drupal's S
 
   # If you forwarded to another port than 8022, change accordingly.
   # Password is "root".
-  ssh root@localhost -p 8022
+  ```ssh root@localhost -p 8022```
   # Change the port number accordingly. This example is if you forward
   # to port 8081.
-  echo "Listen 8081" >> /etc/apache2/ports.conf
-  /etc/init.d/apache2 restart
+  ```echo "Listen 8081" >> /etc/apache2/ports.conf
+  /etc/init.d/apache2 restart```
 
 Or, shorthand:
 
-  ssh root@localhost -p 8022 -C 'echo "Listen 8081" >> /etc/apache2/ports.conf && /etc/init.d/apache2 restart'
+  ```ssh root@localhost -p 8022 -C 'echo "Listen 8081" >> /etc/apache2/ports.conf && /etc/init.d/apache2 restart'```
 
 ### MySQL and PHPMyAdmin
 
