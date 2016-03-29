@@ -26,10 +26,11 @@ RUN apt-get -qqy update && \
     wget \
     supervisor && \
     # Clean packages
-    apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
+    apt-get clean 
+    #&& apt-get autoremove && rm -rf /var/lib/apt/lists/*
 
 # Install Composer.
-RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
+RUN curl -sSk https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
 
 # Install Drush 8 (master) as phar.
@@ -38,7 +39,7 @@ RUN wget http://files.drush.org/drush.phar && \
     chmod +x /usr/local/bin/drush
 
 # Install Drupal Console.
-RUN curl http://drupalconsole.com/installer -L -o drupal.phar && \
+RUN curl -sSk http://drupalconsole.com/installer -L -o drupal.phar && \
     mv drupal.phar /usr/local/bin/drupal && \
     chmod +x /usr/local/bin/drupal
 
