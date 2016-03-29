@@ -88,5 +88,6 @@ RUN echo "xdebug.max_nesting_level = 300" >> /etc/php5/cli/conf.d/20-xdebug.ini
 # Clean www to clone Drupal inside
 RUN rm -rf /var/www
 
-EXPOSE 80 3306 22
-CMD exec supervisord -n
+#EXPOSE 80 3306 22
+#CMD exec supervisord -n
+CMD ["/bin/bash"]
