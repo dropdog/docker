@@ -1,5 +1,5 @@
-Drupal development with Docker
-==============================
+LAMP with Docker for Drupal development
+========================================
 
 It contains a LAMP stack and an SSH server, along with an up to date version of Drush. It is based on [Debian Jessie](https://wiki.debian.org/DebianJessie).
 
@@ -17,7 +17,9 @@ This image contains:
 * Composer
 * PHPMyAdmin
 
-When launching, the container will contain a fully-installed, ready to use infrastructure for Drupal 8.x development.
+> IMPORTANT: No Drupal installation and default database exist on this image. You should add it on your own!
+
+When launching, the container will contain a fully-installed, ready to use infrastructure for **Drupal 8.x** development.
 
 ### Passwords
 
@@ -34,7 +36,7 @@ When launching, the container will contain a fully-installed, ready to use infra
 
 ### Docker repository
 
-Get the image:
+Get the image from docker hub: [dropdog/docker](https://hub.docker.com/r/dropdog/docker/)
 
 ```docker pull dropdog/docker```
 
@@ -46,15 +48,22 @@ You can specify the specific Drupal version you want, like `latest`. For example
 
 ### Running tests
 
-If you want to run tests, you may need to take some additional steps. Drupal's Simpletest will use cURL to simulate user interactions with a freshly installed site when running tests. This "virtual" site resides under `http://localhost:[forwarded ip]`. This gives issues, though, as the *container* uses port `80`. By default, the container's virtual host will actually listen to *any* port, but you still need to tell Apache on which ports it should bind. By default, it will bind on `80` *and* `8080`, so if you use the above examples, you can start running your tests straight away. But, if you choose to forward to a different port, you must add it to Apache's configuration and restart Apache. You can simply do the following:
+If you want to run Drupal tests, you may need to take some additional steps.
+Drupal's Simpletest will use cURL to simulate user interactions with a freshly installed site when running tests. This "virtual" site resides under `http://localhost:[forwarded ip]`. This gives issues, though, as the *container* uses port `80`. 
+By default, the container's virtual host will actually listen to *any* port, but you still need to tell Apache on which ports it should bind. By default, it will bind on `80` *and* `8080`, so if you use the above examples, you can start running your tests straight away. 
+But, if you choose to forward to a different port, you must add it to Apache's configuration and restart Apache. You can simply do the following:
 
   # If you forwarded to another port than 8022, change accordingly.
   # Password is "root".
-  ```ssh root@localhost -p 8022```
+  ```
+  ssh root@localhost -p 8022
+  ```
   # Change the port number accordingly. This example is if you forward
   # to port 8081.
-  ```echo "Listen 8081" >> /etc/apache2/ports.conf
-  /etc/init.d/apache2 restart```
+  ```
+  echo "Listen 8081" >> /etc/apache2/ports.conf
+  /etc/init.d/apache2 restart
+  ```
 
 Or, shorthand:
 
@@ -62,4 +71,6 @@ Or, shorthand:
 
 ### MySQL and PHPMyAdmin
 
-PHPMyAdmin is available at `/phpmyadmin`. The MySQL port `3306` is exposed. The root account for MySQL is `root` (**no password**).
+PHPMyAdmin is available at `/phpmyadmin`. 
+The MySQL port `3306` is exposed. 
+The root account for MySQL is `root` (**no password**).
