@@ -69,25 +69,12 @@ RUN mkdir -p /root/.ssh/ && touch /root/.ssh/authorized_keys
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 # Setup Supervisor.
-RUN echo '[program:apache2]\n\
-         command=/bin/bash -c "source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND"\n\
-         autorestart=true\n'\
-         >> /etc/supervisor/supervisord.conf
-RUN echo '[program:mysql]\n\
-         command=/usr/bin/pidproxy /var/run/mysqld/mysqld.pid /usr/sbin/mysqld\n\
-         autorestart=true\n'\ 
-         >> /etc/supervisor/supervisord.conf
-RUN echo '[program:sshd]\n\
-         command=/usr/sbin/sshd -D\n'\
-         >> /etc/supervisor/supervisord.conf
+RUN echo -e '[program:apache2]\ncommand=/bin/bash -c "source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND"\nautorestart=true\n\n' >> /etc/supervisor/supervisord.conf
+RUN echo -e '[program:mysql]\ncommand=/usr/bin/pidproxy /var/run/mysqld/mysqld.pid /usr/sbin/mysqld\nautorestart=true\n\n' >> /etc/supervisor/supervisord.conf
+RUN echo -e '[program:sshd]\ncommand=/usr/sbin/sshd -D\n\n' >> /etc/supervisor/supervisord.conf
 
 # Setup XDebug.
 RUN echo "xdebug.max_nesting_level = 300" >> /etc/php5/apache2/conf.d/20-xdebug.ini
 RUN echo "xdebug.max_nesting_level = 300" >> /etc/php5/cli/conf.d/20-xdebug.ini
 
-# Clean www to clone Drupal inside
-RUN rm -rf /var/www
-
-#EXPOSE 80 3306 22
-#CMD exec supervisord -n
 CMD ["/bin/bash"]
