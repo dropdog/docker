@@ -12,6 +12,7 @@ RUN apt-get -qqy update && \
     ca-certificates \
     vim \
     git \
+    patch \
     apache2 \
     php5-cli \
     php5-mysql \
