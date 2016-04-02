@@ -74,3 +74,10 @@ Or, shorthand:
 PHPMyAdmin is available at `/phpmyadmin`. 
 The MySQL port `3306` is exposed. 
 The root account for MySQL is `root` (**no password**).
+
+### Thanks to
+This image borrows code and ideas from other projects such as:
+
+ - [github.com/wadmiraal/docker-drupal](https://github.com/wadmiraal/docker-drupal)
+ - [github.com/Boran/docker-drupal](https://github.com/Boran/docker-drupal)
+
