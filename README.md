@@ -13,9 +13,11 @@ This image contains:
 * Apache 2.4
 * MySQL 5.5
 * PHP 5.6
-* Drush dev.
+* Drush master
+* Drupal console
 * Composer
 * PHPMyAdmin
+* supervisord
 
 > IMPORTANT: No Drupal installation and default database exist on this image. You should add it on your own!
 
