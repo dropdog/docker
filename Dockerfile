@@ -57,6 +57,8 @@ RUN sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf &
 # Setup PHP and XDebug
 RUN sed -i 's/display_errors = Off/display_errors = On/' /etc/php5/apache2/php.ini && \
     sed -i 's/display_errors = Off/display_errors = On/' /etc/php5/cli/php.ini && \
+    sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 20M/' /etc/php5/cli/php.ini && \
+    sed -i 's/post_max_size = 8M/post_max_size = 20M/' /etc/php5/cli/php.ini && \
     # Setup XDebug.
     echo "xdebug.max_nesting_level = 300" >> /etc/php5/apache2/conf.d/20-xdebug.ini && \
     echo "xdebug.max_nesting_level = 300" >> /etc/php5/cli/conf.d/20-xdebug.ini
