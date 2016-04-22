@@ -11,7 +11,6 @@ RUN apt-get -qqy update && \
     apt-get -qqy --no-install-recommends install \
     ca-certificates \
     vim \
-    git \
     patch \
     apache2 \
     php5-cli \
