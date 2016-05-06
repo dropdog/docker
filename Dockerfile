@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -qqy update && \
     dpkg-divert --local --rename --add /sbin/initctl && \
     ln -sf /bin/true /sbin/initctl && \
-    
+
     # Install packages.
     apt-get -qqy --no-install-recommends install \
     ca-certificates \
@@ -81,6 +81,9 @@ RUN echo 'root:root' | chpasswd && \
 RUN echo '[program:apache2]\ncommand=/bin/bash -c "source /etc/apache2/envvars && exec /usr/sbin/apache2 -DFOREGROUND"\nautorestart=true\n' >> /etc/supervisor/supervisord.conf && \
     echo '[program:mysql]\ncommand=/usr/bin/pidproxy /var/run/mysqld/mysqld.pid /usr/sbin/mysqld\nautorestart=true\n' >> /etc/supervisor/supervisord.conf && \
     echo '[program:sshd]\ncommand=/usr/sbin/sshd -D\n' >> /etc/supervisor/supervisord.conf
+
+# Create a SOFTWARE.txt file with the installed versions
+RUN bash /scripts/software.sh >> /SOFTWARE.txt
 
 # Default command
 CMD ["/bin/bash"]
