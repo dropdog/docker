@@ -32,7 +32,9 @@ docker run -ti dropdog/docker cat /SOFTWARE.txt
 ```
 
 -----------
-*IMPORTANT: No Drupal installation and default database exist on this image. You should add it on your own!*
+
+IMPORTANT: No Drupal installation and default database exist on this image. You should add it on your own!
+
 -----------
 
 When launching, the container will contain a fully-installed, ready to use infrastructure for **Drupal 8.x** development.
