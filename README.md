@@ -1,9 +1,11 @@
 LAMP with Docker for Drupal development
 ========================================
 
-It contains a LAMP stack and an SSH server, along with an up to date version of Drush. It is based on [Debian Jessie](https://wiki.debian.org/DebianJessie).
+It contains a LAMP stack and an SSH server, Drush, Drupal console etc. 
 
-![Docker image layers](https://badge.imagelayers.io/dropdog/docker.svg "Get your own badge on imagelayers.io")
+Based on [Debian Jessie](https://wiki.debian.org/DebianJessie) image.
+
+![Docker image layers](https://badge.imagelayers.io/dropdog/docker:latest.svg "Get your own badge on imagelayers.io")
 
 Software
 ---------
