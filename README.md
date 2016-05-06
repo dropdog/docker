@@ -69,21 +69,21 @@ Drupal's Simpletest will use cURL to simulate user interactions with a freshly i
 By default, the container's virtual host will actually listen to *any* port, but you still need to tell Apache on which ports it should bind. By default, it will bind on `80` *and* `8080`, so if you use the above examples, you can start running your tests straight away.
 But, if you choose to forward to a different port, you must add it to Apache's configuration and restart Apache. You can simply do the following:
 
-  # If you forwarded to another port than 8022, change accordingly.
-  # Password is "root".
-  ```
-  ssh root@localhost -p 8022
-  ```
-  # Change the port number accordingly. This example is if you forward
-  # to port 8081.
-  ```
-  echo "Listen 8081" >> /etc/apache2/ports.conf
-  /etc/init.d/apache2 restart
-  ```
+```
+// If you forwarded to another port than 8022, change accordingly. Password is "root".
+ssh root@localhost -p 8022
+```
+```  
+//Change the port number accordingly. This example is if you forward to port 8081.
+echo "Listen 8081" >> /etc/apache2/ports.conf
+/etc/init.d/apache2 restart
+```
 
 Or, shorthand:
 
-  ```ssh root@localhost -p 8022 -C 'echo "Listen 8081" >> /etc/apache2/ports.conf && /etc/init.d/apache2 restart'```
+```
+ssh root@localhost -p 8022 -C 'echo "Listen 8081" >> /etc/apache2/ports.conf && /etc/init.d/apache2 restart'
+```
 
 ### MySQL and PHPMyAdmin
 
