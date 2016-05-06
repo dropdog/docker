@@ -83,6 +83,7 @@ RUN echo '[program:apache2]\ncommand=/bin/bash -c "source /etc/apache2/envvars &
     echo '[program:sshd]\ncommand=/usr/sbin/sshd -D\n' >> /etc/supervisor/supervisord.conf
 
 # Create a SOFTWARE.txt file with the installed versions
+ADD /scripts/software.sh /scripts/software.sh
 RUN bash /scripts/software.sh >> /SOFTWARE.txt
 
 # Default command
