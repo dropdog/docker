@@ -1,7 +1,7 @@
 LAMP with Docker for Drupal development
 ========================================
 
-It contains a LAMP stack and an SSH server, Drush, Drupal console etc. 
+It contains a LAMP stack and an SSH server, Drush, Drupal console etc.
 
 Based on [Debian Jessie](https://wiki.debian.org/DebianJessie) image.
 
@@ -28,7 +28,7 @@ Get the exact versions of the installed software using:
 docker exec [CONTAINER_NAME] cat /SOFTWARE.txt
 
 // If there is no container from the current image
-docker run -ti dropdog/docker cat /SOFTWARE.txt
+docker run -ti --rm dropdog/docker cat /SOFTWARE.txt
 ```
 
 -----------
@@ -72,7 +72,7 @@ But, if you choose to forward to a different port, you must add it to Apache's c
 ssh root@localhost -p 8022
 ```
 
-```  
+```
 //Change the port number accordingly. This example is if you forward to port 8081.
 echo "Listen 8081" >> /etc/apache2/ports.conf
 /etc/init.d/apache2 restart

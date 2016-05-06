@@ -3,11 +3,12 @@
 # bash /scripts/software.sh >> /SOFTWARE.txt
 
 # Print distribution info
+echo -e "-----------------------------------\n"
 echo -e "$(uname -a)"
 echo -e "---------------------------------- \n"
 
 # Print date created
-echo -e "Date: $(date +%Y%m%d-%H%M)\n"
+echo -e "Date: $(date)\n"
 
 # Prints installed packages
 # 6 items list
