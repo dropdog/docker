@@ -5,7 +5,7 @@ It contains a LAMP stack and an SSH server, Drush, Drupal console etc.
 
 Based on [Debian Jessie](https://wiki.debian.org/DebianJessie) image.
 
-![Docker image layers](https://badge.imagelayers.io/dropdog/docker:latest.svg "Get your own badge on imagelayers.io")
+[![](https://imagelayers.io/badge/dropdog/docker:latest.svg)](https://imagelayers.io/?images=dropdog/docker:latest 'Get your own badge on imagelayers.io')
 
 Software
 ---------
@@ -32,8 +32,8 @@ docker run -ti dropdog/docker cat /SOFTWARE.txt
 ```
 
 -----------
-
-> IMPORTANT: No Drupal installation and default database exist on this image. You should add it on your own!
+*IMPORTANT: No Drupal installation and default database exist on this image. You should add it on your own!*
+-----------
 
 When launching, the container will contain a fully-installed, ready to use infrastructure for **Drupal 8.x** development.
 
@@ -52,15 +52,11 @@ When launching, the container will contain a fully-installed, ready to use infra
 
 ### Docker repository
 
-Get the image from docker hub: [dropdog/docker](https://hub.docker.com/r/dropdog/docker/)
+Get the image from docker hub: [dropdog/docker](https://hub.docker.com/r/dropdog/docker/). There is only one tag available, "latest".
 
-```docker pull dropdog/docker```
-
-#### Tags
-
-You can specify the specific Drupal version you want, like `latest`. For example:
-
-```docker pull dropdog/docker:latest```
+```
+docker pull dropdog/docker
+```
 
 ### Running tests
 
@@ -73,13 +69,14 @@ But, if you choose to forward to a different port, you must add it to Apache's c
 // If you forwarded to another port than 8022, change accordingly. Password is "root".
 ssh root@localhost -p 8022
 ```
+
 ```  
 //Change the port number accordingly. This example is if you forward to port 8081.
 echo "Listen 8081" >> /etc/apache2/ports.conf
 /etc/init.d/apache2 restart
 ```
 
-Or, shorthand:
+Or shorthand:
 
 ```
 ssh root@localhost -p 8022 -C 'echo "Listen 8081" >> /etc/apache2/ports.conf && /etc/init.d/apache2 restart'
@@ -96,4 +93,3 @@ This image borrows code and ideas from other projects such as:
 
  - [github.com/wadmiraal/docker-drupal](https://github.com/wadmiraal/docker-drupal)
  - [github.com/Boran/docker-drupal](https://github.com/Boran/docker-drupal)
-
