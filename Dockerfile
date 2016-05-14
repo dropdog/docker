@@ -19,6 +19,7 @@ RUN apt-get -qqy update && \
     php5-curl \
     php5-xdebug \
     libapache2-mod-php5 \
+    sendmail \
     curl \
     mysql-server \
     mysql-client \
